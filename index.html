@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+  =========================================
+  DEVELOPER NOTE: APPLE TRAVELS static website
+  =========================================
+  This is a serverless, static website optimized for hosting on platforms like GitHub Pages.
+  
+  - NO DATA IS SAVED TO A SERVER: Form submissions (Booking Form & Contact Form) 
+    do not write to any database. Instead, they are processed client-side via JavaScript 
+    and redirect the customer directly to WhatsApp to send booking details to your support desk.
+  - EASY TO EDIT / MODIFY: You can search and edit text directly:
+    * To change phone numbers, search for "+91 7447500942", "+91 7448213636", or "+91 7447500937"
+    * To change emails, search for "Info@appletravelspune.com"
+    * To change address, search for "E 504, Ovi Homes"
+  =========================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Apple Travels | Premium Car Rentals Pune & Pan-India</title>
+  <meta name="description" content="Book premium cars for rent with Apple Travels. Reliable corporate and individual car hire service across Pune and Pan-India. 24/7 customer support, experienced drivers, and diverse fleet.">
+  <meta name="keywords" content="car rental Pune, car hire India, corporate car rental, local car hire, outstation taxi, Innova rental Pune, luxury car rental, Apple Travels, Apple Travels Pune">
+  <meta name="author" content="Apple Travels">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://appletravelspune.com/">
+
+  <!-- OpenGraph Meta Tags for Social Media -->
+  <meta property="og:title" content="Apple Travels | Premium Car Rentals Pune & Pan-India">
+  <meta property="og:description" content="Rent cars for business or personal travel across Pune and Pan-India. Competitive rates, professional drivers, 24/7 service.">
+  <meta property="og:image" content="images/hero-car.png">
+  <meta property="og:url" content="https://appletravelspune.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Apple Travels | Premium Car Rentals Pune & Pan-India">
+  <meta name="twitter:description" content="Reliable corporate & individual car hire across Pune & India. High-quality cars, verified drivers, 24/7 support.">
+  <meta name="twitter:image" content="images/hero-car.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚗</text></svg>">
+
+  <!-- FontAwesome Icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data / Local Business Schema (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Apple Travels",
+    "image": "https://appletravelspune.com/images/hero-car.png",
+    "@id": "https://appletravelspune.com/#localbusiness",
+    "url": "https://appletravelspune.com/",
+    "telephone": "+917447500942",
+    "email": "Info@appletravelspune.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "E 504, Ovi Homes, New D P Road, Dehugaon",
+      "addressLocality": "Pune",
+      "addressRegion": "Maharashtra",
+      "postalCode": "412109",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 18.7214,
+      "longitude": 73.7661
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "sameAs": [
+      "https://www.facebook.com/appletravelspune",
+      "https://www.instagram.com/appletravelspune"
+    ],
+    "priceRange": "$$"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header class="header" id="header">
+    <div class="container header-container">
+      <a href="#hero" class="logo" id="logo-link">
+        <div class="logo-icon"><i class="fa-solid fa-car-side"></i></div>
+        Apple <span>Travels</span>
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#hero" class="nav-link active" id="nav-link-home">Home</a></li>
+          <li><a href="#fleet" class="nav-link" id="nav-link-fleet">Our Fleet</a></li>
+          <li><a href="#services" class="nav-link" id="nav-link-services">Services</a></li>
+          <li><a href="#why-us" class="nav-link" id="nav-link-why">Why Choose Us</a></li>
+          <li><a href="#contact" class="nav-link" id="nav-link-contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+917447500942" class="btn btn-secondary btn-nav-phone" id="btn-header-call">
+          <i class="fa-solid fa-phone"></i> <span>+91 7447500942</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="badge"><i class="fa-solid fa-circle-dot"></i> Pan-India Car Rental Service</div>
+          <h1 class="hero-title">Premium Car Rentals <span>For Any Journey</span></h1>
+          <p class="hero-desc">Providing standard, executive, and luxury vehicles for business travel, corporate contracts, and personal outings. Chauffeur-driven or self-drive solutions customized for your needs.</p>
+          <div class="hero-btns">
+            <a href="#booking" class="btn btn-primary" id="hero-btn-book">Book Now <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#fleet" class="btn btn-secondary" id="hero-btn-fleet">Explore Fleet</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>24<span>/</span>7</h3>
+              <p>Customer Support</p>
+            </div>
+            <div class="stat-item">
+              <h3>50<span>+</span></h3>
+              <p>Destinations Covered</p>
+            </div>
+            <div class="stat-item">
+              <h3>4.9<span>★</span></h3>
+              <p>Customer Rating</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay-1">
+          <div class="hero-image-bg"></div>
+          <img src="images/hero-car.png" alt="Luxury Car Rental Apple Travels" class="hero-image" id="hero-car-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING WIDGET FORM COMMENTED OUT - Re-enable by removing the comment tags below -->
+    <!-- 
+    <section class="container booking-widget-wrapper" id="booking">
+      <div class="booking-widget glass reveal">
+        <div class="booking-tabs">
+          <button class="booking-tab-btn active" id="tab-individual" data-tab="individual">Individual Booking</button>
+          <button class="booking-tab-btn" id="tab-corporate" data-tab="corporate">Corporate Rental</button>
+        </div>
+        <form class="booking-form" id="booking-form">
+          <input type="hidden" name="booking_type" id="booking-type" value="individual">
+          <div class="form-group">
+            <label for="pickup-loc"><i class="fa-solid fa-location-dot"></i> Pickup Location</label>
+            <input type="text" id="pickup-loc" class="form-control" placeholder="e.g. Pune Airport, Hotel" required>
+          </div>
+          <div class="form-group">
+            <label for="drop-loc"><i class="fa-solid fa-location-pin"></i> Dropoff Location</label>
+            <input type="text" id="drop-loc" class="form-control" placeholder="e.g. Mumbai, Outstation Address" required>
+          </div>
+          <div class="form-group">
+            <label for="pickup-date"><i class="fa-solid fa-calendar-days"></i> Pickup Date</label>
+            <input type="date" id="pickup-date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="car-type"><i class="fa-solid fa-car"></i> Vehicle Category</label>
+            <select id="car-type" class="form-control">
+              <option value="sedan">Executive Sedan (Dzire, Etios)</option>
+              <option value="suv">Premium SUV (Innova Crysta, Ertiga)</option>
+              <option value="luxury">Luxury Elite (BMW, Mercedes)</option>
+              <option value="traveler">Group Coaches (Traveller, Bus)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-num"><i class="fa-solid fa-phone"></i> Mobile Number</label>
+            <input type="tel" id="contact-num" class="form-control" placeholder="Your Mobile Number" required pattern="[0-9]{10}">
+          </div>
+          <div class="form-group booking-submit-btn">
+            <button type="submit" class="btn btn-primary btn-block" id="btn-submit-booking">
+              Request Booking <i class="fa-solid fa-calendar-check"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    -->
+
+    <!-- Quick CTA Banner (replaces booking form) -->
+    <section class="container booking-widget-wrapper" id="booking">
+      <div class="booking-widget glass reveal" style="text-align:center; padding: 40px 32px;">
+        <div class="badge" style="margin: 0 auto 16px;"><i class="fa-solid fa-phone-volume"></i> Book Instantly</div>
+        <h2 style="font-size:2rem; margin-bottom:12px;">Ready to Book? <span style="color:var(--primary)">Call or WhatsApp Us!</span></h2>
+        <p style="color:var(--text-muted); margin-bottom:32px; font-size:1.05rem;">No forms needed. Simply call or WhatsApp us with your pickup location, destination, date, and vehicle preference — and we'll handle the rest.</p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+          <a href="tel:+917447500942" class="btn btn-primary" id="cta-call-btn"><i class="fa-solid fa-phone"></i> Call Now: +91 7447500942</a>
+          <a href="https://wa.me/917447500942?text=Hello%20Apple%20Travels%2C%20I%20want%20to%20book%20a%20car." target="_blank" class="btn btn-accent" id="cta-whatsapp-btn"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fleet Section -->
+    <section class="section-padding" id="fleet">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="badge badge-gold"><i class="fa-solid fa-gem"></i> Premium Selection</div>
+          <h2 class="section-title">Our Premium Fleet</h2>
+          <p class="section-subtitle">Choose from our wide variety of meticulously maintained, clean, and reliable vehicles for local trips, corporate dispatch, or pan-India journeys.</p>
+        </div>
+
+        <div class="fleet-filters reveal">
+          <button class="filter-btn active" data-filter="all">All Fleet</button>
+          <button class="filter-btn" data-filter="sedan">Sedans</button>
+          <button class="filter-btn" data-filter="suv">SUVs</button>
+          <button class="filter-btn" data-filter="luxury">Luxury</button>
+          <button class="filter-btn" data-filter="traveler">Coaches / Buses</button>
+        </div>
+
+        <div class="fleet-grid">
+          <!-- Sedan 1 -->
+          <div class="fleet-card glass reveal filter-item sedan" id="fleet-card-dzire">
+            <div class="fleet-img-container">
+              <div class="fleet-badge">Popular</div>
+              <img src="images/cars/dzire.png" alt="Maruti Swift Dzire" class="fleet-img">
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Maruti Suzuki Dzire</h3>
+              <p class="fleet-desc">The perfect and most economical option for city commutes and corporate employee transits.</p>
+              <div class="fleet-specs">
+                <div class="spec-item"><i class="fa-solid fa-user-group"></i> 4 Seats</div>
+                <div class="spec-item"><i class="fa-solid fa-briefcase"></i> 2 Bags</div>
+                <div class="spec-item"><i class="fa-solid fa-gears"></i> Manual/Auto</div>
+              </div>
+              <div class="fleet-booking-details">
+                <div class="fleet-price">Rates <span>On Call / WhatsApp</span></div>
+                <button class="btn btn-secondary btn-quick-book" data-car="Maruti Dzire" id="btn-book-dzire">Quick Book</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUV 1 -->
+          <div class="fleet-card glass reveal filter-item suv" id="fleet-card-innova">
+            <div class="fleet-img-container">
+              <div class="fleet-badge">Comfort King</div>
+              <img src="images/cars/innova.png" alt="Toyota Innova Crysta" class="fleet-img">
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Toyota Innova Crysta</h3>
+              <p class="fleet-desc">Unmatched luxury, ride quality, and space for outstation family trips and business guests.</p>
+              <div class="fleet-specs">
+                <div class="spec-item"><i class="fa-solid fa-user-group"></i> 6-7 Seats</div>
+                <div class="spec-item"><i class="fa-solid fa-briefcase"></i> 4 Bags</div>
+                <div class="spec-item"><i class="fa-solid fa-gears"></i> Manual/AC</div>
+              </div>
+              <div class="fleet-booking-details">
+                <div class="fleet-price">Rates <span>On Call / WhatsApp</span></div>
+                <button class="btn btn-secondary btn-quick-book" data-car="Toyota Innova Crysta" id="btn-book-innova">Quick Book</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sedan 2 -->
+          <div class="fleet-card glass reveal filter-item sedan" id="fleet-card-honda-city">
+            <div class="fleet-img-container">
+              <div class="fleet-badge">Executive</div>
+              <img src="images/cars/hondacity.png" alt="Honda City" class="fleet-img">
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Honda City</h3>
+              <p class="fleet-desc">Elegant styling and premium cabin space for business executives and airport pickups.</p>
+              <div class="fleet-specs">
+                <div class="spec-item"><i class="fa-solid fa-user-group"></i> 4 Seats</div>
+                <div class="spec-item"><i class="fa-solid fa-briefcase"></i> 3 Bags</div>
+                <div class="spec-item"><i class="fa-solid fa-gears"></i> Automatic</div>
+              </div>
+              <div class="fleet-booking-details">
+                <div class="fleet-price">Rates <span>On Call / WhatsApp</span></div>
+                <button class="btn btn-secondary btn-quick-book" data-car="Honda City" id="btn-book-hondacity">Quick Book</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Luxury 1 -->
+          <div class="fleet-card glass reveal filter-item luxury" id="fleet-card-mercedes">
+            <div class="fleet-img-container">
+              <div class="fleet-badge">VIP Elite</div>
+              <img src="images/cars/mercedes.png" alt="Mercedes Benz E-Class" class="fleet-img">
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Mercedes-Benz E-Class</h3>
+              <p class="fleet-desc">Premium luxury chauffeur driven car for celebrity visits, high-end clients, and weddings.</p>
+              <div class="fleet-specs">
+                <div class="spec-item"><i class="fa-solid fa-user-group"></i> 4 Seats</div>
+                <div class="spec-item"><i class="fa-solid fa-briefcase"></i> 3 Bags</div>
+                <div class="spec-item"><i class="fa-solid fa-gears"></i> Automatic</div>
+              </div>
+              <div class="fleet-booking-details">
+                <div class="fleet-price">Rates <span>On Call / WhatsApp</span></div>
+                <button class="btn btn-secondary btn-quick-book" data-car="Mercedes E-Class" id="btn-book-mercedes">Request Quote</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUV 2 -->
+          <div class="fleet-card glass reveal filter-item suv" id="fleet-card-ertiga">
+            <div class="fleet-img-container">
+              <div class="fleet-badge">Economic SUV</div>
+              <img src="images/cars/ertiga.png" alt="Maruti Ertiga" class="fleet-img">
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Maruti Suzuki Ertiga</h3>
+              <p class="fleet-desc">Affordable MUV option offering practical seating for family groups on local or long journeys.</p>
+              <div class="fleet-specs">
+                <div class="spec-item"><i class="fa-solid fa-user-group"></i> 6 Seats</div>
+                <div class="spec-item"><i class="fa-solid fa-briefcase"></i> 2 Bags</div>
+                <div class="spec-item"><i class="fa-solid fa-gears"></i> Manual</div>
+              </div>
+              <div class="fleet-booking-details">
+                <div class="fleet-price">Rates <span>On Call / WhatsApp</span></div>
+                <button class="btn btn-secondary btn-quick-book" data-car="Maruti Ertiga" id="btn-book-ertiga">Quick Book</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Coach 1 -->
+          <div class="fleet-card glass reveal filter-item traveler" id="fleet-card-traveller">
+            <div class="fleet-img-container">
+              <div class="fleet-badge">Group Travel</div>
+              <img src="images/cars/traveller.png" alt="Force Traveller" class="fleet-img">
+            </div>
+            <div class="fleet-info">
+              <h3 class="fleet-name">Force Traveller (17-Seater)</h3>
+              <p class="fleet-desc">Perfect for corporate tours, family get-togethers, wedding parties, and group sightseeings.</p>
+              <div class="fleet-specs">
+                <div class="spec-item"><i class="fa-solid fa-user-group"></i> 17 Seats</div>
+                <div class="spec-item"><i class="fa-solid fa-briefcase"></i> 12 Bags</div>
+                <div class="spec-item"><i class="fa-solid fa-gears"></i> AC/Blower</div>
+              </div>
+              <div class="fleet-booking-details">
+                <div class="fleet-price">Rates <span>On Call / WhatsApp</span></div>
+                <button class="btn btn-secondary btn-quick-book" data-car="Force Traveller 17S" id="btn-book-traveller">Quick Book</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section-padding glass" id="services" style="border-left: none; border-right: none; border-radius: 0;">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="badge"><i class="fa-solid fa-handshake"></i> What We Do</div>
+          <h2 class="section-title">Our Professional Services</h2>
+          <p class="section-subtitle">Delivering high-caliber transportation solutions tailored to your unique itinerary, locations, and schedules.</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Corporate -->
+          <div class="service-card glass reveal">
+            <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+            <h3 class="service-title">Corporate Car Rentals</h3>
+            <p class="service-desc">Long-term contracts, employee transit, executive business trips, and customized GST billing for corporations nationwide.</p>
+          </div>
+          
+          <!-- Outstation -->
+          <div class="service-card glass reveal reveal-delay-1">
+            <div class="service-icon"><i class="fa-solid fa-route"></i></div>
+            <h3 class="service-title">Outstation Journeys</h3>
+            <p class="service-desc">Safe, comfortable intercity rides covering key destinations across Maharashtra and neighboring states. Perfect for weekend getaways.</p>
+          </div>
+
+          <!-- Airport Transfer -->
+          <div class="service-card glass reveal reveal-delay-2">
+            <div class="service-icon"><i class="fa-solid fa-plane-departure"></i></div>
+            <h3 class="service-title">Airport Transfers</h3>
+            <p class="service-desc">Never miss a flight. Punctual pickup and drop services for Pune International Airport and Chhatrapati Shivaji Maharaj International Airport (Mumbai).</p>
+          </div>
+
+          <!-- Event / Wedding -->
+          <div class="service-card glass reveal">
+            <div class="service-icon"><i class="fa-solid fa-glass-water"></i></div>
+            <h3 class="service-title">Events & Wedding Hire</h3>
+            <p class="service-desc">Add a touch of elegance to your special day with our premium luxury fleets, coordinating all transit logistics for family and VIP guests.</p>
+          </div>
+
+          <!-- Local Packages -->
+          <div class="service-card glass reveal reveal-delay-1">
+            <div class="service-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+            <h3 class="service-title">Local Rental Packages</h3>
+            <p class="service-desc">Choose from flexible 4 Hours/40 KM or 8 Hours/80 KM packages for running daily errands, shopping, or local sightseeing trips.</p>
+          </div>
+
+          <!-- Pan-India bookings -->
+          <div class="service-card glass reveal reveal-delay-2">
+            <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+            <h3 class="service-title">Pan-India Support</h3>
+            <p class="service-desc">Need a car outside Maharashtra? We leverage our robust partner networks to arrange clean, reliable cars in cities all over India.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Split section (Business vs Individual) -->
+    <section class="split-section" id="why-us">
+      <!-- Corporate Split -->
+      <div class="split-col split-col-business reveal">
+        <div class="badge"><i class="fa-solid fa-briefcase"></i> Enterprise</div>
+        <h2 class="split-title">Business <span>Car Rentals</span></h2>
+        <p class="split-desc">Streamline corporate transportation with customized solutions, priority customer service support, and tailored invoicing protocols.</p>
+        <ul class="split-features">
+          <li><i class="fa-solid fa-circle-check"></i> Monthly billing & GST compliant invoicing</li>
+          <li><i class="fa-solid fa-circle-check"></i> Uniformed, verified, and professional chauffeurs</li>
+          <li><i class="fa-solid fa-circle-check"></i> Dedicated account managers & dispatch software</li>
+          <li><i class="fa-solid fa-circle-check"></i> Replacement vehicle guarantees</li>
+        </ul>
+        <div>
+          <a href="#contact" class="btn btn-primary" id="btn-split-corp">Partner With Us</a>
+        </div>
+      </div>
+
+      <!-- Individual Split -->
+      <div class="split-col split-col-individual reveal reveal-delay-1">
+        <div class="badge badge-gold"><i class="fa-solid fa-user"></i> Personal</div>
+        <h2 class="split-title">Individual <span>Rentals</span></h2>
+        <p class="split-desc">Enjoy high-end, comfortable, and reliable family travels, business trips, or personal getaways without worry.</p>
+        <ul class="split-features">
+          <li><i class="fa-solid fa-circle-check"></i> 100% transparent pricing—no hidden costs</li>
+          <li><i class="fa-solid fa-circle-check"></i> Easy booking adjustments & flexible cancellations</li>
+          <li><i class="fa-solid fa-circle-check"></i> Well-sanitized vehicles with high safety ratings</li>
+          <li><i class="fa-solid fa-circle-check"></i> 24/7 on-road breakdown assistance</li>
+        </ul>
+        <div>
+          <a href="#booking" class="btn btn-accent" id="btn-split-indiv">Book A Trip Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding" id="testimonials">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="badge badge-gold"><i class="fa-solid fa-star"></i> Reviews</div>
+          <h2 class="section-title">What Our Customers Say</h2>
+          <p class="section-subtitle">Real feedback from local businesses and individual travelers who rely on Apple Travels daily.</p>
+        </div>
+
+        <div class="testimonial-grid">
+          <!-- Card 1 -->
+          <div class="testimonial-card glass reveal">
+            <span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Apple Travels is our go-to partner for all executive commutes in Pune. Their drivers are always punctual, polite, and the billing is perfectly seamless and transparent."</p>
+            <div class="client-info">
+              <div class="client-avatar">RS</div>
+              <div class="client-details">
+                <h4>Rajesh Shinde</h4>
+                <p>Operations Manager, Tech solutions</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="testimonial-card glass reveal reveal-delay-1">
+            <span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"We booked an Innova Crysta for our family trip to Lonavala and Mahabaleshwar. The car was spotless, and the driver navigated the ghats exceptionally safely. Highly recommended!"</p>
+            <div class="client-info">
+              <div class="client-avatar">AM</div>
+              <div class="client-details">
+                <h4>Anjali Mehta</h4>
+                <p>Individual Client, Pune</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="testimonial-card glass reveal reveal-delay-2">
+            <span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+            <div class="stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Punctual airport pickup at 3:00 AM from Pune to Mumbai. Safe driving, clean car (Dzire), and reasonable tariff. Will definitely book again for my next official trip."</p>
+            <div class="client-info">
+              <div class="client-avatar">VK</div>
+              <div class="client-details">
+                <h4>Vikram Kulkarni</h4>
+                <p>Corporate Consultant</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Map Section -->
+    <section class="section-padding glass" id="contact" style="border-left: none; border-right: none; border-radius: 0;">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="badge"><i class="fa-solid fa-envelope"></i> Contact Us</div>
+          <h2 class="section-title">Get In Touch Today</h2>
+          <p class="section-subtitle">Reach out to us for direct bookings, corporate tie-ups, custom quotes, or any query regarding pan-India travels.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Information details -->
+          <div class="contact-info-cards reveal">
+            <!-- Card Phone -->
+            <div class="contact-info-card glass">
+              <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+              <div class="contact-details">
+                <h3>Contact Phone</h3>
+                <p>Call us anytime (24/7 Hotline):</p>
+                <a href="tel:+917447500942" id="contact-tel-1">+91 7447500942</a>
+                <a href="tel:+917448213636" id="contact-tel-2">+91 7448213636</a>
+                <a href="tel:+917447500937" id="contact-tel-3">+91 7447500937</a>
+              </div>
+            </div>
+
+            <!-- Card Email -->
+            <div class="contact-info-card glass">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-details">
+                <h3>Email Address</h3>
+                <p>Send your queries or purchase orders:</p>
+                <a href="mailto:Info@appletravelspune.com" id="contact-email">Info@appletravelspune.com</a>
+              </div>
+            </div>
+
+            <!-- Card Address -->
+            <div class="contact-info-card glass">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-details">
+                <h3>Registered Address</h3>
+                <p>E 504, Ovi Homes, New D P Road,<br>Dehugaon, Pune - 412109, Maharashtra, India</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- CONTACT FORM COMMENTED OUT - Re-enable by removing the comment tags below -->
+          <!--
+          <div class="contact-form-wrapper glass reveal reveal-delay-1">
+            <form class="contact-form" id="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name">Full Name</label>
+                  <input type="text" id="contact-name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email-input">Email Address</label>
+                  <input type="email" id="contact-email-input" class="form-control" placeholder="Enter your email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="contact-phone-input">Phone Number</label>
+                <input type="tel" id="contact-phone-input" class="form-control" placeholder="Enter phone number" required pattern="[0-9]{10}">
+              </div>
+              <div class="form-group">
+                <label for="contact-message">Your Message</label>
+                <textarea id="contact-message" class="form-control" placeholder="Describe your travel plan, dates, or business contract details..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" id="btn-submit-contact">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+          </div>
+          -->
+
+          <!-- WhatsApp CTA (replaces contact form) -->
+          <div class="contact-form-wrapper glass reveal reveal-delay-1" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:24px;">
+            <div class="service-icon" style="width:70px;height:70px;font-size:2rem;margin:0 auto;"><i class="fa-brands fa-whatsapp"></i></div>
+            <h3 style="font-size:1.8rem;">Reach Us on <span style="color:var(--primary)">WhatsApp</span></h3>
+            <p style="color:var(--text-muted); font-size:1rem; max-width:400px;">Share your travel requirements directly on WhatsApp. We typically respond within minutes. No form needed!</p>
+            <a href="https://wa.me/917447500942?text=Hello%20Apple%20Travels%2C%20I%20need%20help%20with%20a%20car%20booking." target="_blank" class="btn btn-primary" id="contact-whatsapp-btn" style="font-size:1.1rem; padding:16px 32px;">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <p style="color:var(--text-muted); font-size:0.9rem;">Or email us at <a href="mailto:Info@appletravelspune.com" style="color:var(--primary);">Info@appletravelspune.com</a></p>
+          </div>
+        </div>
+
+        <!-- Map Section - OpenStreetMap (No API key required, works on GitHub Pages) -->
+        <div class="map-section reveal">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=73.7535%2C18.7114%2C73.7735%2C18.7314&layer=mapnik&marker=18.721415%2C73.763524"
+            allowfullscreen=""
+            loading="lazy"
+            title="Apple Travels Location - Dehugaon, Pune"
+            style="filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%)">
+          </iframe>
+        </div>
+        <p style="text-align:center; margin-top:16px; color:var(--text-muted); font-size:0.9rem;">
+          <i class="fa-solid fa-location-dot" style="color:var(--primary);"></i>
+          E 504, Ovi Homes, New D P Road, Dehugaon, Pune — 412109 &nbsp;|
+          <a href="https://www.google.com/maps/search/Ovi+Homes+Dehugaon+Pune" target="_blank" style="color:var(--primary); margin-left:4px;">Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <!-- Col 1 -->
+      <div class="footer-col footer-col-about">
+        <a href="#hero" class="logo" id="footer-logo">
+          <div class="logo-icon"><i class="fa-solid fa-car-side"></i></div>
+          Apple <span>Travels</span>
+        </a>
+        <p>Premium cab booking and taxi services across Pune and Pan-India. Offering high-quality Sedans, spacious SUVs, luxury cars, and 17+ seater coaches for weddings, events, individuals, and corporate partners.</p>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://twitter.com" target="_blank" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Col 2 -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#fleet">Our Fleet</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3 -->
+      <div class="footer-col">
+        <h4>Car Rentals</h4>
+        <ul class="footer-links">
+          <li><a href="#booking">Corporate Accounts</a></li>
+          <li><a href="#booking">Airport Pickups</a></li>
+          <li><a href="#booking">Outstation Travel</a></li>
+          <li><a href="#booking">Wedding Fleets</a></li>
+          <li><a href="#booking">Local Car Hire</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4 -->
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>E 504, Ovi Homes, New D P Road, Dehugaon, Pune - 412109</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <a href="tel:+917447500942" id="footer-tel-1">+91 7447500942</a><br>
+            <a href="tel:+917448213636" id="footer-tel-2">+91 7448213636</a><br>
+            <a href="tel:+917447500937" id="footer-tel-3">+91 7447500937</a>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:Info@appletravelspune.com" id="footer-email">Info@appletravelspune.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Apple Travels Pune. All Rights Reserved. Designed for premium traveler care.</p>
+      <p>
+        <a href="#hero">Privacy Policy</a> | 
+        <a href="#hero">Terms & Conditions</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Booking Confirmation Success Modal -->
+  <div class="modal" id="success-modal">
+    <div class="modal-content glass">
+      <div class="modal-icon"><i class="fa-solid fa-circle-check"></i></div>
+      <h3 class="modal-title" id="modal-title-text">Request Submitted!</h3>
+      <p class="modal-desc" id="modal-desc-text">Thank you for booking with Apple Travels. Our operations team will contact you shortly with vehicle details and a tariff quote.</p>
+      <button class="btn btn-primary" id="btn-close-modal">Got it, Thanks!</button>
+    </div>
+  </div>
+
+  <!-- JavaScript scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
